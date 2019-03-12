@@ -9,10 +9,11 @@ public class Project implements Comparable<Project> {
 	private int TitleWords;
 	private double Pledge;
 	private boolean StaffPick;
+	private String URL;
 	private double Likeness;
 	private double Fitness;
 	
-	public Project(long duration, boolean us, String cat, double goal, int blurb, int title, double pledge, boolean staff) {
+	public Project(long duration, boolean us, String cat, double goal, int blurb, int title, double pledge, boolean staff, String url) {
 		this.Duration = duration;
 		this.US = us;
 		this.Category = cat;
@@ -21,6 +22,7 @@ public class Project implements Comparable<Project> {
 		this.TitleWords = title;
 		this.Pledge = pledge;
 		this.StaffPick = staff;
+		this.URL = url;
 		//Defaults:
 		this.Likeness = -1;
 		this.Fitness = -1;
@@ -36,6 +38,7 @@ public class Project implements Comparable<Project> {
 		//Defaults:
 		this.Pledge = -1;
 		this.StaffPick = false;
+		this.URL = "";
 		this.Likeness = -1;
 		this.Fitness = -1;
 	}
@@ -70,6 +73,10 @@ public class Project implements Comparable<Project> {
 	
 	public boolean getStaffPick() {
 		return this.StaffPick;
+	}
+	
+	public String getURL() {
+		return this.URL;
 	}
 	
 	public double getLikeness() {
