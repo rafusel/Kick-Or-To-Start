@@ -25,7 +25,6 @@ public class Read
 		int index = 0;
 		int otherindex = 0;
 		
-		
 		while(scanner.hasNextLine())
 		{
 		    Scanner valueScanner = new Scanner(scanner.nextLine());
