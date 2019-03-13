@@ -1,7 +1,7 @@
 package tokickortostart;
 
 public class Project implements Comparable<Project> {
-	private long Duration;
+	private double Duration;
 	private boolean US;
 	private String Category;
 	private double Goal;
@@ -13,7 +13,7 @@ public class Project implements Comparable<Project> {
 	private double Likeness;
 	private double Fitness;
 	
-	public Project(long duration, boolean us, String cat, double goal, int blurb, int title, double pledge, boolean staff, String url) {
+	public Project(double duration, boolean us, String cat, double goal, int blurb, int title, double pledge, boolean staff, String url) {
 		this.Duration = duration;
 		this.US = us;
 		this.Category = cat;
@@ -28,7 +28,7 @@ public class Project implements Comparable<Project> {
 		this.Fitness = -1;
 	}
 	
-	public Project(long duration, boolean us, String cat, double goal, int blurb, int title) {
+	public Project(double duration, boolean us, String cat, double goal, int blurb, int title) {
 		this.Duration = duration;
 		this.US = us;
 		this.Category = cat;
@@ -43,7 +43,7 @@ public class Project implements Comparable<Project> {
 		this.Fitness = -1;
 	}
 	
-	public long getDuration() {
+	public double getDuration() {
 		return this.Duration;
 	}
 	

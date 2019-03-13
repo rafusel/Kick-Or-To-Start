@@ -12,9 +12,11 @@ public class Probability {
 		int sum = 0;
 		for (int index = 0; index < length; index ++) {
 			if (arr[index].getPledge() >= arr[index].getGoal())
+			{
 				sum++;
+			}
 		}
-		return sum / length;
+		return (double) sum / length;
 	}
 	
 	private static void sortProj(Project [] arr) {

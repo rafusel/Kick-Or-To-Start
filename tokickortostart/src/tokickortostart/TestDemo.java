@@ -1,10 +1,11 @@
 package tokickortostart;
+import java.io.FileNotFoundException;
 
 public class TestDemo {
 
-	public static void main(String[] args) {
-		Project input = new Project(10, true, "technology", 100000, 20, 3);
-		Project [] arr = null; //READ
+	public static void main(String[] args) throws FileNotFoundException {
+		Project input = new Project(10, true, "telivision", 100000, 20, 3);
+		Project [] arr = Read.reading();
 		Likeness.allLikeness(arr, input);
 		double prob = Probability.probability(arr);
 		Project best = SimilarProject.MostSimilar(arr);
