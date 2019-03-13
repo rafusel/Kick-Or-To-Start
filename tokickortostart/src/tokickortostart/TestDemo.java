@@ -3,7 +3,7 @@ package tokickortostart;
 public class TestDemo {
 
 	public static void main(String[] args) {
-		Project input = new Project(10, true, "Technology", 100000, 20, 3);
+		Project input = new Project(10, true, "technology", 100000, 20, 3);
 		Project [] arr = null; //READ
 		Likeness.allLikeness(arr, input);
 		double prob = Probability.probability(arr);
