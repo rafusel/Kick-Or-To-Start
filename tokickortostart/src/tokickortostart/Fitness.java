@@ -2,7 +2,10 @@ package tokickortostart;
 
 public class Fitness {
 	public static void allFitness(Project [] arr) {
-		for (int index = 0; index < arr.length; index++) {
+		int length = 1000;
+		if (arr.length < 1000)
+			length = arr.length;
+		for (int index = 0; index < length; index++) {
 			fitness(arr[index]);
 		}
 		return;
