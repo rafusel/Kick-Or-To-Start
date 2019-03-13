@@ -11,6 +11,7 @@ public class TestDemo {
 		Fitness.allFitness(arr);
 		System.out.println(prob);
 		System.out.println(best.getURL());
+		//Test
 	}
 
 }
