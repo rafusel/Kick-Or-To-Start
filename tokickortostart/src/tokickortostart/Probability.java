@@ -16,6 +16,7 @@ public class Probability {
 				sum++;
 			}
 		}
+		
 		return (double) sum / length;
 	}
 	
