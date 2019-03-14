@@ -44,7 +44,11 @@ public class Read
 		    		goal = Double.parseDouble(data);
 		    	}
 		    	else if (index == 4){
-		    		usa = Boolean.parseBoolean(data);
+		    		int tmp = Integer.parseInt(data);
+		    		if (tmp == 1)
+		    			usa = true;
+		    		else
+		    			usa = false;
 		    	}
 		    	else if (index == 5){
 		    		blurbwords = Integer.parseInt(data);
