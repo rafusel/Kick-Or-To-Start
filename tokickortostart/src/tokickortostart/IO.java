@@ -114,6 +114,10 @@ public class IO {
 		////////////////////////////////////////////////////
 		//           END OF READING FROM USER             //
 		////////////////////////////////////////////////////
+		////////////////////////////////////////////////////
+		//    Cam, this is where the stuff from test demo //
+		//               was copied from.                 //
+		////////////////////////////////////////////////////
 		
 		Project [] arr = Read.reading();
 		Likeness.allLikeness(arr, userProj);
@@ -122,6 +126,8 @@ public class IO {
 		Fitness.allFitness(arr);
 		Project bestest = Score.BestProject(arr);
 		String[] suggs = Suggestion.getSuggestions(userProj);
+		
+		//END OF WHERE YOU PROBABLY NEED TO EDIT
 		
 		Writer output = new BufferedWriter(new FileWriter(new File("output.txt")));
 		
