@@ -1,11 +1,18 @@
 package tokickortostart;
 
 import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.Calendar;
 import java.util.Date;
 
 public class IO {
-	public static void main(String[] args) {
+	@SuppressWarnings("resource")
+	public static void main(String[] args) throws IOException {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the begin date of your project: (dd/mm/yyyy)");
 		String beginString = input.next();
@@ -26,25 +33,117 @@ public class IO {
 		day = Integer.parseInt(input.next());
 		month = Integer.parseInt(input.next());
 		year = Integer.parseInt(input.next());
-		cal = Calendar.getInstance();
-		cal.set(year,  month, day);
-		Date end = cal.getTime();
+		Calendar cal2 = Calendar.getInstance();
+		cal2.set(year,  month, day);
+		Date end = cal2.getTime();
 		
-		double duration = Math.abs((begin.getTime() - end.getTime())/8640000);
+		//duration is the duration of the input project. Pass this to the Project constructor.
+		double duration = Math.abs((begin.getTime() - end.getTime())/86400000);
 		
-		System.out.println("Does is your project based out of the United States? (y/n)");
+		boolean us = true;
+		//us is for the Project constructor.
+		System.out.println("Is your project based out of the United States? (y/n)");
 		input = new Scanner(System.in);
 		if(input.next().equals("y")) {
-			boolean us = true;
+			us = true;
 		} else {
-			boolean us = false;
+			us = false;
 		}
 		
 		System.out.println("Which one of these categories is your project in?");
 		System.out.println("Enter the number that corresponds with your category.");
 		
+		Scanner categories = new Scanner(new File("categories.txt"));
+		categories.useDelimiter("\n");
+		String[] cat = new String[134];
+		for (int i = 0; i < cat.length; i++) {
+			cat[i] = categories.next();
+		}
 		
+		for (int i = 0; i <  cat.length; i++) {
+			System.out.print((i + 1) + " " + cat[i]);
+		}
+		input = new Scanner(System.in);
+		int x =  input.nextInt();
+		//Category is for the input project constructor.
+		String category = cat[x - 1];
+		category = category.substring(0, category.length() - 1);
 		
+		System.out.println("What is your project's target funding?");
+		input = new Scanner(System.in);
+		//Goal is for the input project constructor.
+		double goal = input.nextDouble();
+		//input.close();
 		
+		System.out.println("Please input your project description.");
+		input = new Scanner(System.in);
+		String description = input.nextLine();
+		int descriptionWords = 0;
+		for (int i  = 0; i < description.length(); i++) {
+			if(description.charAt(i) == ' ') {
+				descriptionWords++;
+			}
+		}
+		descriptionWords++;
+		//descriptionWOrds is for the input constructor. 
+		
+		System.out.println("Please input your project title.");
+		input = new Scanner(System.in);
+		String title = input.nextLine();
+		int titleWords = 0;
+		for (int i  = 0; i < title.length(); i++) {
+			if(title.charAt(i) == ' ') {
+				titleWords++;
+			}
+		}
+		titleWords++;
+		
+		//titleWOrds is for the input constructor. 
+		/*
+		System.out.println(duration);
+		System.out.println(us);
+		System.out.println(category);
+		System.out.println(goal);
+		System.out.println(descriptionWords);
+		System.out.println(titleWords);
+		*/
+		
+		Project userProj = new Project(duration, us, category, goal, descriptionWords, titleWords);
+		//0input.close();
+		
+		////////////////////////////////////////////////////
+		//           END OF READING FROM USER             //
+		////////////////////////////////////////////////////
+		////////////////////////////////////////////////////
+		//    Cam, this is where the stuff from test demo //
+		//               was copied from.                 //
+		////////////////////////////////////////////////////
+		
+		Project [] arr = Read.reading();
+		Likeness.allLikeness(arr, userProj);
+		double prob = Probability.probability(arr);
+		Project best = SimilarProject.MostSimilar(arr);
+		Fitness.allFitness(arr);
+		Project bestest = Score.BestProject(arr);
+		String[] suggs = Suggestion.getSuggestions(userProj);
+		
+		//END OF WHERE YOU PROBABLY NEED TO EDIT
+		
+		Writer output = new BufferedWriter(new FileWriter(new File("output.txt")));
+		
+		output.write("The probability that your project will succeed is: ");
+		output.write((prob*100) + "%. \n");
+		output.write("\n");
+		output.write("The most similar project in our data base to the project you entered \ncan be found here: \n ");
+		output.write(best.getURL() + "\n");
+		output.write("\n");
+		output.write("The project you should model your project off of can be found here: \n");
+		output.write(bestest.getURL() + "\n");
+		output.write("\n");
+		output.write("These personalized suggestions could help increase your chances at a successful campaign: \n");
+		for (int i = 0; i < suggs.length; i++) {
+			output.write((i + 1)+ ") " + suggs[i] + "\n");
+		}
+		output.close();
 	}
 }
