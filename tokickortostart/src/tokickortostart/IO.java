@@ -96,12 +96,14 @@ public class IO {
 		titleWords++;
 		
 		//titleWOrds is for the input constructor. 
+		/*
 		System.out.println(duration);
 		System.out.println(us);
 		System.out.println(category);
 		System.out.println(goal);
 		System.out.println(descriptionWords);
 		System.out.println(titleWords);
+		*/
 		
 		Project userProj = new Project(duration, us, category, goal, descriptionWords, titleWords);
 		//0input.close();
