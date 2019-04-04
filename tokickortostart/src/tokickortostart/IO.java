@@ -32,6 +32,18 @@ public class IO {
 		
 		double duration = Math.abs((begin.getTime() - end.getTime())/8640000);
 		
+		System.out.println("Does is your project based out of the United States? (y/n)");
+		input = new Scanner(System.in);
+		if(input.next().equals("y")) {
+			boolean us = true;
+		} else {
+			boolean us = false;
+		}
+		
+		System.out.println("Which one of these categories is your project in?");
+		System.out.println("Enter the number that corresponds with your category.");
+		
+		
 		
 		
 	}
