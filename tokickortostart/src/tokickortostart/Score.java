@@ -3,28 +3,28 @@ package tokickortostart;
 import java.util.ArrayList;
 
 public class Score {
-	public static Project Score(Project[] arr) {
+	public static Project BestProject(Project[] arr) {
 		ArrayList<Project> layer1 = new ArrayList<Project>(); //90+
 		ArrayList<Project> layer2 = new ArrayList<Project>(); //80-89.9
 		ArrayList<Project> layer3 = new ArrayList<Project>(); //70-79.9
-		int id = 1;
-		for (; id < arr.length + 1; id++) {
-			Project curr = arr[id - 1];
+		int sum = 1;
+		for (int id = 0; id < arr.length; id++) {
+			Project curr = arr[id];
 			if (curr.getLikeness() >= 90) {
 				layer1.add(curr);
-				curr.setID(id);
+				curr.setID(sum++);
 			} else if (curr.getLikeness() >= 80) {
 				layer2.add(curr);
-				curr.setID(id);
+				curr.setID(sum++);
 			} else if (curr.getLikeness() >= 70) {
 				layer3.add(curr);
-				curr.setID(id);
+				curr.setID(sum++);
 			} else {
 				break;
 			}
 		}
 		
-		Graph graph = new Graph(id+1);
+		Graph graph = new Graph(arr.length - sum);
 		
 		for (int i = 0; i < layer1.size(); i++) {
 			Project curr = layer1.get(i);
