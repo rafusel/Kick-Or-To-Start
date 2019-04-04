@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class Read 
 {
 	
-	private static final String FILE_PATH = "Book6.csv";
+	private static final String FILE_PATH = "Book7.csv";
 	public static Project[] reading() throws FileNotFoundException
 	{
-		Project[] projects = new Project[1118];
+		Project[] projects = new Project[736];
 		Scanner scanner = new Scanner(new File(FILE_PATH));
 		
 		String url = "";
@@ -66,7 +66,7 @@ public class Read
 		    }
 		    index = 0;
 		    //System.out.println(category);
-		    if (category.equals("television"))
+		    if (category.equals("3d printing"))
 		    {
 		    	projects[otherindex] = new Project(duration, usa, category, goal, blurbwords, titlewords, pledge, staff, url);
 				otherindex++; 	
@@ -76,8 +76,6 @@ public class Read
 		   	
 		}
 		
-		
-
         return projects;
          
 	}
