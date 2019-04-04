@@ -33,7 +33,6 @@ public class Hashing<Key, Value> {
     public boolean contains(Key key) {
         return get(key) != null;
     } 
-
     // return value associated with key, null if no such key
     public Value get(Key key) {
         int i = hash(key);
