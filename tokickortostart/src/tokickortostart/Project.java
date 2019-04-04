@@ -82,7 +82,7 @@ public class Project implements Comparable<Project> {
 		return this.URL;
 	}
 	
-	public double getID() {
+	public int getID() {
 		return this.ID;
 	}
 	
