@@ -1,11 +1,14 @@
 package tokickortostart;
 
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Calendar;
 import java.util.Date;
 
 public class IO {
-	public static void main(String[] args) {
+	@SuppressWarnings("resource")
+	public static void main(String[] args) throws FileNotFoundException {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the begin date of your project: (dd/mm/yyyy)");
 		String beginString = input.next();
@@ -26,24 +29,86 @@ public class IO {
 		day = Integer.parseInt(input.next());
 		month = Integer.parseInt(input.next());
 		year = Integer.parseInt(input.next());
-		cal = Calendar.getInstance();
-		cal.set(year,  month, day);
-		Date end = cal.getTime();
+		Calendar cal2 = Calendar.getInstance();
+		cal2.set(year,  month, day);
+		Date end = cal2.getTime();
 		
-		double duration = Math.abs((begin.getTime() - end.getTime())/8640000);
+		//duration is the duration of the input project. Pass this to the Project constructor.
+		double duration = Math.abs((begin.getTime() - end.getTime())/86400000);
 		
-		System.out.println("Does is your project based out of the United States? (y/n)");
+		boolean us = true;
+		//us is for the Project constructor.
+		System.out.println("Is your project based out of the United States? (y/n)");
 		input = new Scanner(System.in);
 		if(input.next().equals("y")) {
-			boolean us = true;
+			us = true;
 		} else {
-			boolean us = false;
+			us = false;
 		}
 		
 		System.out.println("Which one of these categories is your project in?");
 		System.out.println("Enter the number that corresponds with your category.");
 		
+		Scanner categories = new Scanner(new File("categories.txt"));
+		categories.useDelimiter("\n");
+		String[] cat = new String[134];
+		for (int i = 0; i < cat.length; i++) {
+			cat[i] = categories.next();
+		}
 		
+		for (int i = 0; i <  cat.length; i++) {
+			System.out.print((i + 1) + " " + cat[i]);
+		}
+		System.out.println();
+		input = new Scanner(System.in);
+		int x =  input.nextInt();
+		//Category is for the input project constructor.
+		String category = cat[x - 1];
+		category = category.substring(0, category.length() - 1);
+		
+		System.out.println("What is your project's target funding?");
+		input = new Scanner(System.in);
+		//Goal is for the input project constructor.
+		double goal = input.nextDouble();
+		//input.close();
+		
+		System.out.println("Please input your project description.");
+		input = new Scanner(System.in);
+		String description = input.nextLine();
+		int descriptionWords = 0;
+		for (int i  = 0; i < description.length(); i++) {
+			if(description.charAt(i) == ' ') {
+				descriptionWords++;
+			}
+		}
+		descriptionWords++;
+		//descriptionWOrds is for the input constructor. 
+		
+		System.out.println("Please input your project title.");
+		input = new Scanner(System.in);
+		String title = input.nextLine();
+		int titleWords = 0;
+		for (int i  = 0; i < title.length(); i++) {
+			if(title.charAt(i) == ' ') {
+				titleWords++;
+			}
+		}
+		titleWords++;
+		
+		//titleWOrds is for the input constructor. 
+		System.out.println(duration);
+		System.out.println(us);
+		System.out.println(category);
+		System.out.println(goal);
+		System.out.println(descriptionWords);
+		System.out.println(titleWords);
+		
+		Project userProj = new Project(duration, us, category, goal, descriptionWords, titleWords);
+		//0input.close();
+		
+		////////////////////////////////////////////////////
+		//           END OF READING FROM USER             //
+		////////////////////////////////////////////////////
 		
 		
 	}
