@@ -7,10 +7,15 @@ public class Read
 {
 	
 	private static final String FILE_PATH = "Book7.csv";
-	public static Project[] reading() throws FileNotFoundException
+	
+
+	
+	
+	public static Project[] reading(String type) throws FileNotFoundException
 	{
-		Project[] projects = new Project[736];
+		//Project[] projects = new Project[736];
 		Scanner scanner = new Scanner(new File(FILE_PATH));
+		Hashing hash = new Hashing(143); //the number of different categories
 		
 		String url = "";
 		double duration = 0;
@@ -65,6 +70,12 @@ public class Read
 		    	index++;
 		    }
 		    index = 0;
+		    
+		    hash.put(category ,new Project(duration, usa, category, goal, blurbwords, titlewords, pledge, staff, url));
+		    
+		    
+		    
+		    /*
 		    //System.out.println(category);
 		    if (category.equals("3d printing"))
 		    {
@@ -72,11 +83,20 @@ public class Read
 				otherindex++; 	
 				//System.out.println(otherindex);
 		    }
+		    */
 		    
 		   	
 		}
 		
-        return projects;
+		Object[] x =  hash.get(type).toArray();
+		Project[] v = new Project[x.length];
+		
+		for(int i = 0; i < x.length; i++ )
+		{
+			v[i] = (Project) x[i];
+		}
+		
+		return v; 
          
 	}
 }

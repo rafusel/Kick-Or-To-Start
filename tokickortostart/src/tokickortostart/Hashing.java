@@ -1,7 +1,7 @@
 package tokickortostart;
 import java.util.*;
 
-public class Hashing<Key, Value> {
+public class Hashing<String, Project> {
 
     private int n;       // number of key-value pairs
     private int m;       // hash table size
@@ -15,7 +15,7 @@ public class Hashing<Key, Value> {
 
 
     // hash value between 0 and m-1
-    private int hash(Key key) {
+    private int hash(String key) {
         return (key.hashCode() & 0x7fffffff) % m;
     } 
 
@@ -28,31 +28,21 @@ public class Hashing<Key, Value> {
     public boolean isEmpty() {
         return size() == 0;
     }
-
-    // is the key in the symbol table?
-    public boolean contains(Key key) {
-        return get(key) != null;
-    } 
-    // return value associated with key, null if no such key
-    public Value get(Key key) {
+    
+    public ArrayList<Project> get(String key)
+    {
         int i = hash(key);
-        for (Node x = st[i]; x != null; x = x.next) {
-            if (key.equals(x.key)) return (Value) x.val;
-        }
-        return null;
+        return st[i];
     }
 
     // insert key-value pair into the table
-    public void put(Key key, Value val) {
+    public void put(String key, Project val) {
         int i = hash(key);
-        for (Node x = st[i]; x != null; x = x.next) {
-            if (key.equals(x.)) {
-                x.val = val;
-                return;
-            }
+        if(st[i] == null)
+        {
+        	st[i] = new ArrayList();
         }
-        n++;
-        st[i] = new ArrayList<Product>(key, val, st[i]);
+        st[i].add(val);
     }
 
 }

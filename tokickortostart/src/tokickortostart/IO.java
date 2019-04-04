@@ -119,7 +119,7 @@ public class IO {
 		//               was copied from.                 //
 		////////////////////////////////////////////////////
 		
-		Project [] arr = Read.reading();
+		Project [] arr = Read.reading(category);
 		Likeness.allLikeness(arr, userProj);
 		double prob = Probability.probability(arr);
 		Project best = SimilarProject.MostSimilar(arr);
