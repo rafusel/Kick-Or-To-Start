@@ -63,6 +63,7 @@ public class IO {
 		for (int i = 0; i <  cat.length; i++) {
 			System.out.print((i + 1) + " " + cat[i]);
 		}
+		System.out.println();
 		input = new Scanner(System.in);
 		int x =  input.nextInt();
 		//Category is for the input project constructor.

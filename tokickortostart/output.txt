@@ -1,12 +1,11 @@
-The probability that your project will succeed is: 22.0%. 
+The probability that your project will succeed is: 7.000000000000001%. 
 
 The most similar project in our data base to the project you entered 
 can be found here: 
- https://www.kickstarter.com/projects/1082376532/oxocial?ref=discovery_category_newest
+ https://www.kickstarter.com/projects/herstory/herstory?ref=discovery_category_newest
 
 The project you should model your project off of can be found here: 
-https://www.kickstarter.com/projects/rocksetta/joe-javascripts-machine-learning-tutorials?ref=discovery_category_newest
+https://www.kickstarter.com/projects/287365203/hail-to-the-king-60-years-of-destruction-documenta?ref=discovery_category_newest
 
 These personalized suggestions could help increase your chances at a successful campaign: 
-1) Consider shortening your end date if possible.
-2) Try and increase the detail in your description for maximum results.
+1) Try and increase the detail in your description for maximum results.

@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 public class TestDemo {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		Project input = new Project(60, true, "television", 100000, 150, 50);
+		/*Project input = new Project(60, true, "television", 100000, 150, 50);
 		Project [] arr = Read.reading();
 		Likeness.allLikeness(arr, input);
 		double prob = Probability.probability(arr);
@@ -14,7 +14,7 @@ public class TestDemo {
 		System.out.println(prob);
 		System.out.println(best.getURL());
 		System.out.println(bestest.getURL());
-		//Test
+		//Test*/
 		
 	}
 

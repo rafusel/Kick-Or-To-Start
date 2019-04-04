@@ -12,19 +12,22 @@ public class Score {
 			Project curr = arr[id];
 			if (curr.getLikeness() >= 90) {
 				layer1.add(curr);
-				curr.setID(sum++);
+				curr.setID(sum);
+				sum += 1;
 			} else if (curr.getLikeness() >= 80) {
 				layer2.add(curr);
-				curr.setID(sum++);
+				curr.setID(sum);
+				sum += 1;
 			} else if (curr.getLikeness() >= 70) {
 				layer3.add(curr);
-				curr.setID(sum++);
+				curr.setID(sum);
+				sum += 1;
 			} else {
 				break;
 			}
 		}
-		
-		Graph graph = new Graph(arr.length - sum);
+
+		Graph graph = new Graph(sum /*+ 1*/);
 		
 		for (int i = 0; i < layer1.size(); i++) {
 			Project curr = layer1.get(i);
