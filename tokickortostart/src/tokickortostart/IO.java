@@ -121,6 +121,7 @@ public class IO {
 		Project best = SimilarProject.MostSimilar(arr);
 		Fitness.allFitness(arr);
 		Project bestest = Score.BestProject(arr);
+		String[] suggs = Suggestion.getSuggestions(userProj);
 		
 		Writer output = new BufferedWriter(new FileWriter(new File("output.txt")));
 		
@@ -132,6 +133,11 @@ public class IO {
 		output.write("\n");
 		output.write("The project you should model your project off of can be found here: \n");
 		output.write(bestest.getURL() + "\n");
+		output.write("\n");
+		output.write("These personalized suggestions could help increase your chances at a successful campaign: \n");
+		for (int i = 0; i < suggs.length; i++) {
+			output.write((i + 1)+ ") " + suggs[i] + "\n");
+		}
 		output.close();
 	}
 }
