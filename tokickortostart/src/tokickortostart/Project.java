@@ -107,6 +107,6 @@ public class Project implements Comparable<Project> {
 	}
 
 	public int compareTo(Project in) {
-		return (int) (this.getLikeness() - in.getLikeness());
+		return (int) (in.getLikeness() - this.getLikeness());
 	}
 }
