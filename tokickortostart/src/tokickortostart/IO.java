@@ -1,14 +1,18 @@
 package tokickortostart;
 
 import java.util.Scanner;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.Calendar;
 import java.util.Date;
 
 public class IO {
 	@SuppressWarnings("resource")
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws IOException {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the begin date of your project: (dd/mm/yyyy)");
 		String beginString = input.next();
@@ -59,7 +63,6 @@ public class IO {
 		for (int i = 0; i <  cat.length; i++) {
 			System.out.print((i + 1) + " " + cat[i]);
 		}
-		System.out.println();
 		input = new Scanner(System.in);
 		int x =  input.nextInt();
 		//Category is for the input project constructor.
@@ -112,6 +115,23 @@ public class IO {
 		//           END OF READING FROM USER             //
 		////////////////////////////////////////////////////
 		
+		Project [] arr = Read.reading();
+		Likeness.allLikeness(arr, userProj);
+		double prob = Probability.probability(arr);
+		Project best = SimilarProject.MostSimilar(arr);
+		Fitness.allFitness(arr);
+		Project bestest = Score.BestProject(arr);
 		
+		Writer output = new BufferedWriter(new FileWriter(new File("output.txt")));
+		
+		output.write("The probability that your project will succeed is: ");
+		output.write((prob*100) + "%. \n");
+		output.write("\n");
+		output.write("The most similar project in our data base to the project you entered \ncan be found here: \n ");
+		output.write(best.getURL() + "\n");
+		output.write("\n");
+		output.write("The project you should model your project off of can be found here: \n");
+		output.write(bestest.getURL() + "\n");
+		output.close();
 	}
 }
