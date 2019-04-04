@@ -12,7 +12,7 @@ public class Fitness {
 	}
 	
 	private static void fitness(Project project) {
-		double fitness = project.getPledge() / project.getGoal();
+		double fitness = 100 * project.getPledge() / project.getGoal();
 		if (project.getStaffPick())
 			fitness += 20;
 		
