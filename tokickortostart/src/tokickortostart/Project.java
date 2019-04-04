@@ -10,6 +10,7 @@ public class Project implements Comparable<Project> {
 	private double Pledge;
 	private boolean StaffPick;
 	private String URL;
+	private int ID;
 	private double Likeness;
 	private double Fitness;
 	
@@ -24,6 +25,7 @@ public class Project implements Comparable<Project> {
 		this.StaffPick = staff;
 		this.URL = url;
 		//Defaults:
+		this.ID = -1;
 		this.Likeness = -1;
 		this.Fitness = -1;
 	}
@@ -39,6 +41,7 @@ public class Project implements Comparable<Project> {
 		this.Pledge = -1;
 		this.StaffPick = false;
 		this.URL = "";
+		this.ID = -1;
 		this.Likeness = -1;
 		this.Fitness = -1;
 	}
@@ -79,12 +82,20 @@ public class Project implements Comparable<Project> {
 		return this.URL;
 	}
 	
+	public int getID() {
+		return this.ID;
+	}
+	
 	public double getLikeness() {
 		return this.Likeness;
 	}
 	
 	public double getFitness() {
 		return this.Fitness;
+	}
+	
+	public void setID(int id) {
+		this.ID = id;
 	}
 	
 	public void setLikeness(double likeness) {
