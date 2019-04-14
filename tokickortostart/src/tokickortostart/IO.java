@@ -74,7 +74,6 @@ public class IO {
 		input = new Scanner(System.in);
 		//Goal is for the input project constructor.
 		double goal = input.nextDouble();
-		//input.close();
 		
 		System.out.println("Please input your project description.");
 		input = new Scanner(System.in);
@@ -99,26 +98,7 @@ public class IO {
 		}
 		titleWords++;
 		
-		//titleWOrds is for the input constructor. 
-		/*
-		System.out.println(duration);
-		System.out.println(us);
-		System.out.println(category);
-		System.out.println(goal);
-		System.out.println(descriptionWords);
-		System.out.println(titleWords);
-		*/
-		
-		Project userProj = new Project(duration, us, category, goal, descriptionWords, titleWords);
-		//0input.close();
-		
-		////////////////////////////////////////////////////
-		//           END OF READING FROM USER             //
-		////////////////////////////////////////////////////
-		////////////////////////////////////////////////////
-		//    Cam, this is where the stuff from test demo //
-		//               was copied from.                 //
-		////////////////////////////////////////////////////
+		Project userProj = new Project(duration, us, category, goal, descriptionWords, titleWords);		
 		
 		Project [] arr = Read.reading(category);
 		Likeness.allLikeness(arr, userProj);
@@ -128,7 +108,6 @@ public class IO {
 		Project bestest = Score.BestProject(arr);
 		String[] suggs = Suggestion.getSuggestions(userProj);
 		
-		//END OF WHERE YOU PROBABLY NEED TO EDIT
 		
 		Writer output = new BufferedWriter(new FileWriter(new File("output.txt")));
 		

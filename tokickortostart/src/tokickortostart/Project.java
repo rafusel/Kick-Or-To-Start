@@ -65,7 +65,7 @@ public class Project implements Comparable<Project> {
 	public int getBlurbWords() {
 		return this.BlurbWords;
 	}
-	//yeep
+
 	public int getTitleWords() {
 		return this.TitleWords;
 	}

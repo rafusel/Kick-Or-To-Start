@@ -9,7 +9,7 @@ public class Likeness {
 	}
 	
 	private static void likeness(Project project, Project input) {
-		//Needs to be changed to include blurb and title words
+	
 		double likeness = 0;
 		
 		int Title = Math.abs(project.getTitleWords() - input.getTitleWords());
@@ -30,7 +30,7 @@ public class Likeness {
 		
 		
 		likeness *= 5 - (Math.abs(input.getGoal() - project.getGoal()) / input.getGoal());
-		//likeness *= 1 - (Math.abs(input.getDuration() - project.getDuration()) / input.getDuration());
+		
 		if (project.getUS() == input.getUS())
 			likeness += 10;
 		
