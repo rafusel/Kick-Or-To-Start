@@ -22,7 +22,7 @@ public class Read
 		double pledge = 0;
 		int blurbwords = 0;
 		int titlewords = 0;
-		boolean staff = true;
+		//boolean staff = true;
 		
 		int index = 0;
 		int otherindex = 0;
@@ -68,7 +68,7 @@ public class Read
 		    }
 		    index = 0;
 		    
-		    hash.put(category ,new Project(duration, usa, category, goal, blurbwords, titlewords, pledge, staff, url));
+		    hash.put(category ,new Project(duration, usa, category, goal, blurbwords, titlewords, pledge, url));
 		        
 		}
 		
