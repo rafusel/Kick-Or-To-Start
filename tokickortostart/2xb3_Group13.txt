@@ -1,0 +1,8 @@
+SFWR ENG 2XB3
+Cameron Dufault - 400118209 - Project Leader, Back-End Designer/Programmer
+Victor Vezina - 400139700 - Lead Tester, Back-End Liaison Desginer/Programmer
+Lewis Rafuse - 400119152 - Assistant Tester, Front-End Liaison Designer/Programmer
+Mahnoor Tariq -  400134834 - Log Admin, Front-End Designer/Programmer
+
+The work submitted in this project is entirely my groups own creation
+- April 14 2019
