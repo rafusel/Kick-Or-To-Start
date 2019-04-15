@@ -62,7 +62,7 @@ public class Score {
 		return arr[0];
 	}
 	
-	public static int Best(Graph graph) { //Modified DFS
+	private static int Best(Graph graph) { //Modified DFS
 		ArrayList<Edge> adj0 = graph.adj(0);
 		int bestProj = 0;
 		double maxWeight = 0;
